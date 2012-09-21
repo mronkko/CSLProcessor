@@ -1,0 +1,15 @@
+[submodule "json-framework"]
+	path = json-framework
+	url = git://github.com/stig/json-framework
+[submodule "styles"]
+	path = styles
+	url = https://github.com/citation-style-language/styles.git
+[submodule "z2csl"]
+	path = z2csl
+	url = https://github.com/aurimasv/z2csl
+[submodule "TouchXML"]
+	path = TouchXML
+	url = https://github.com/TouchCode/TouchXML
+[submodule "locales"]
+	path = locales
+	url = https://github.com/citation-style-language/locales.git
