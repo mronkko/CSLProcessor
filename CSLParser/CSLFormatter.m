@@ -87,7 +87,7 @@ static const NSInteger FORM_SYMBOL = 4;
 -(void) configureWithAttribute:(NSString*) attributeName value:(NSString*)attributeValue formatter:(CSLFormatter*) formatter;
 
 //Rendering
--(NSString*) renderContentForFields:(NSMutableDictionary *)fields formatter:(CSLFormatter*)formatter rootElement:(CSLBibliographyOrCitation*)rootElement;
+-(NSString*) renderContentForFields:(NSMutableDictionary *)fields formatter:(CSLFormatter*)formatter rootElement:(CSLBibliographyOrCitation*)rootElement storeMacrosInDictionary:(NSMutableDictionary*) macros;
 -(NSString*) postProcessRenderedString:(NSString*) renderedString;
 
 -(BOOL) containsVariablesFields:(NSMutableDictionary*)fields formatter:(CSLFormatter*)formatter;
@@ -316,8 +316,8 @@ static const NSInteger FORM_SYMBOL = 4;
     //TODO: Implement rest of the attributes and call super class.
 }
 
--(NSString*)renderContentForFields:(NSMutableDictionary *)fields formatter:(CSLFormatter *)formatter rootElement:(CSLBibliographyOrCitation *)rootElement{
-    return [child renderContentForFields:fields formatter:formatter rootElement:rootElement];
+-(NSString*)renderContentForFields:(NSMutableDictionary *)fields formatter:(CSLFormatter *)formatter rootElement:(CSLBibliographyOrCitation *)rootElement storeMacrosInDictionary:(NSMutableDictionary*) macro{
+    return [child renderContentForFields:fields formatter:formatter rootElement:rootElement storeMacrosInDictionary:macro];
 }
 
 @end
@@ -463,12 +463,12 @@ static NSInteger CRITERION_TYPE = 1;
     return NULL;
 }
 
--(NSString*) renderContentForFields:(NSMutableDictionary *)fields formatter:(CSLFormatter*)formatter rootElement:(CSLBibliographyOrCitation*)rootElement{
+-(NSString*) renderContentForFields:(NSMutableDictionary *)fields formatter:(CSLFormatter*)formatter rootElement:(CSLBibliographyOrCitation*)rootElement storeMacrosInDictionary:(NSMutableDictionary*) macros{
     
     CSLIfElseCondition* condition = [self _elementToRenderBasedOnFields:fields];
 
     if(condition!=NULL){
-        return [condition renderContentForFields:fields formatter:formatter rootElement:rootElement];
+        return [condition renderContentForFields:fields formatter:formatter rootElement:rootElement storeMacrosInDictionary:macros];
     }
     else{
         return @"";
@@ -564,11 +564,11 @@ static NSInteger CRITERION_TYPE = 1;
     
 }
 
--(NSString*) renderContentForFields:(NSMutableDictionary *)fields formatter:(CSLFormatter*)formatter rootElement:(CSLBibliographyOrCitation*)rootElement{
+-(NSString*) renderContentForFields:(NSMutableDictionary *)fields formatter:(CSLFormatter*)formatter rootElement:(CSLBibliographyOrCitation*)rootElement storeMacrosInDictionary:(NSMutableDictionary*) macros{
     
     NSMutableString* contentString;
     for(CSLRenderingElement* element in childElements){
-        NSString* content = [element renderContentForFields:fields formatter:formatter rootElement:rootElement];
+        NSString* content = [element renderContentForFields:fields formatter:formatter rootElement:rootElement storeMacrosInDictionary:macros];
         if(content!=NULL){
             if(contentString == NULL){
                 contentString = [NSMutableString stringWithString:content];
@@ -603,7 +603,7 @@ static NSInteger CRITERION_TYPE = 1;
 
 @implementation CSLGroup
 
--(NSString*) renderContentForFields:(NSMutableDictionary *)fields formatter:(CSLFormatter*)formatter rootElement:(CSLBibliographyOrCitation*)rootElement{
+-(NSString*) renderContentForFields:(NSMutableDictionary *)fields formatter:(CSLFormatter*)formatter rootElement:(CSLBibliographyOrCitation*)rootElement storeMacrosInDictionary:(NSMutableDictionary*) macros{
 
     NSMutableString* contentString = [[NSMutableString alloc] init];
 
@@ -611,7 +611,7 @@ static NSInteger CRITERION_TYPE = 1;
         
         BOOL first = TRUE;
         for(CSLRenderingElement* element in childElements){
-            NSString* content = [element renderContentForFields:fields formatter:formatter rootElement:rootElement];
+            NSString* content = [element renderContentForFields:fields formatter:formatter rootElement:rootElement storeMacrosInDictionary:macros];
             if(content!=NULL && [content length]>0){
                 if(! first && delimiter != NULL){
                     //Be smart about spaces and punctuation
@@ -672,7 +672,7 @@ static NSInteger CRITERION_TYPE = 1;
     }
 }
 
--(NSString*) renderContentForFields:(NSMutableDictionary *)fields formatter:(CSLFormatter*)formatter rootElement:(CSLBibliographyOrCitation*)rootElement{
+-(NSString*) renderContentForFields:(NSMutableDictionary *)fields formatter:(CSLFormatter*)formatter rootElement:(CSLBibliographyOrCitation*)rootElement storeMacrosInDictionary:(NSMutableDictionary*) macros{
     [NSException raise:@"Not implemented" format:@"Not implemented"];
     return FALSE;
 }
@@ -811,8 +811,8 @@ static const NSInteger FONT_STYLE_OBLIQUE = 2;
         [super configureWithAttribute:key value:attributeValue formatter:formatter];
     }
 }
--(NSString*) renderContentForFields:(NSMutableDictionary *)fields formatter:(CSLFormatter*)formatter rootElement:(CSLBibliographyOrCitation*)rootElement{
-    
+-(NSString*) renderContentForFields:(NSMutableDictionary *)fields formatter:(CSLFormatter*)formatter rootElement:(CSLBibliographyOrCitation*)rootElement storeMacrosInDictionary:(NSMutableDictionary*) macros{
+
     NSString* mainContent;
     
     switch (type) {
@@ -820,7 +820,11 @@ static const NSInteger FONT_STYLE_OBLIQUE = 2;
             if(macroObject == NULL){
                 macroObject = [formatter macroWithName:value];
             }
-            mainContent = [macroObject renderContentForFields:fields formatter:formatter rootElement:rootElement];
+            mainContent = [macroObject renderContentForFields:fields formatter:formatter rootElement:rootElement storeMacrosInDictionary:macros];
+
+            //Store the macro value so that it is available in the output
+            if(macros!=NULL && mainContent != NULL) [macros setObject:mainContent forKey:value];
+            
             break;
         case TYPE_VALUE:
             mainContent = value;
@@ -1043,7 +1047,7 @@ static NSArray* stopWords;
     plural = newplural;
 }
 
--(NSString*)renderContentForFields:(NSMutableDictionary *)fields formatter:(CSLFormatter *)formatter rootElement:(CSLBibliographyOrCitation *)rootElement{
+-(NSString*)renderContentForFields:(NSMutableDictionary *)fields formatter:(CSLFormatter *)formatter rootElement:(CSLBibliographyOrCitation *)rootElement storeMacrosInDictionary:(NSMutableDictionary *)macros{
     NSString* ret = [formatter localizedStringForTerm:self.variable plural:self.plural form:form];
     if(ret == NULL){
         return NULL;
@@ -1122,22 +1126,7 @@ static const NSInteger NAME_FORM_LONG=0;
 static const NSInteger NAME_FORM_SHORT=1;
 static const NSInteger NAME_FORM_COUNT=2;
 
-/*
- 
- "contextual" - (default), name delimiter is only used for name lists with three or more names
- 2 names: "J. Doe and T. Williams"
- 3 names: "J. Doe, S. Smith, and T. Williams"
- "after-inverted-name" - name delimiter is only used if the preceding name is inverted as a result of the name-as-sort-order attribute. E.g. with name-as-sort-order set to "first":
- "Doe, J., and T. Williams"
- "Doe, J., S. Smith and T. Williams"
- "always" - name delimiter is always used
- 2 names: "J. Doe, and T. Williams"
- 3 names: "J. Doe, S. Smith, and T. Williams"
- "never" - name delimiter is never used
- 2 names: "J. Doe and T. Williams"
- 3 names: "J. Doe, S. Smith and T. Williams"
- 
- */
+static NSRegularExpression* REGEX_ROMANESQUE;
 
 -(id) initWithXMLElement:(CXMLElement *)element formatter:(CSLFormatter *)formatter{
     self = [super initWithXMLElement:element formatter:formatter];
@@ -1254,7 +1243,7 @@ static const NSInteger NAME_FORM_COUNT=2;
     }
 
 }
--(NSString*) renderContentForFields:(NSMutableDictionary *)fields formatter:(CSLFormatter *)formatter rootElement:(CSLBibliographyOrCitation*)rootElement{
+-(NSString*) renderContentForFields:(NSMutableDictionary *)fields formatter:(CSLFormatter *)formatter rootElement:(CSLBibliographyOrCitation*)rootElement storeMacrosInDictionary:(NSMutableDictionary *)macros{
     NSMutableString* namesString = [[NSMutableString alloc] init];
 
     BOOL hasNames = FALSE;
@@ -1327,23 +1316,35 @@ static const NSInteger NAME_FORM_COUNT=2;
                     
                     NSArray* parts = [[creator objectForKey:@"firstName"] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@". "]];
                     for(NSString* firstNamePart in parts){
-                        //Support for hyphens
-                        NSString* firstNamePartCleaned = [firstNamePart stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@". "]];
                         
-                        if([firstNamePartCleaned length]>0){
-                            NSArray* subParts = [firstNamePartCleaned componentsSeparatedByString:@"-"];
-                            NSInteger counter =0;
-                            for(NSString* firstNameSubPart in subParts){
-                                [firstName appendString:[[firstNameSubPart substringToIndex:1] uppercaseString]];
-                                if(++counter<[subParts count]){
-                                    [firstName appendString:[initializeWith stringByReplacingOccurrencesOfString:@" " withString:@""]];
-                                    [firstName appendString:@"-"];
-                                }
-                                else{
-                                    [firstName appendString:initializeWith];
+                        if(REGEX_ROMANESQUE == NULL){
+                            //This might need to be fixed to include also other characters
+                            REGEX_ROMANESQUE =[[NSRegularExpression alloc] initWithPattern:@"[a-zA-Z]" options:NULL error:NULL];
+                        }
+                        
+                        if([REGEX_ROMANESQUE rangeOfFirstMatchInString:firstNamePart options:NULL range:NSMakeRange(0, [firstNamePart length])].location != NSNotFound ){
+                            //Support for hyphens
+                            NSString* firstNamePartCleaned = [firstNamePart stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@". "]];
+                            
+                            if([firstNamePartCleaned length]>0){
+                                NSArray* subParts = [firstNamePartCleaned componentsSeparatedByString:@"-"];
+                                NSInteger counter =0;
+                                for(NSString* firstNameSubPart in subParts){
+                                    [firstName appendString:[[firstNameSubPart substringToIndex:1] uppercaseString]];
+                                    if(++counter<[subParts count]){
+                                        [firstName appendString:[initializeWith stringByReplacingOccurrencesOfString:@" " withString:@""]];
+                                        [firstName appendString:@"-"];
+                                    }
+                                    else{
+                                        [firstName appendString:initializeWith];
+                                    }
                                 }
                             }
                         }
+                        else{
+                            [firstName appendString:firstNamePart];
+                        }
+                        
                     }
                     
                     if(invertNameOrder){
@@ -1376,7 +1377,7 @@ static const NSInteger NAME_FORM_COUNT=2;
             if(label != NULL){
                 label.plural = [namesObjects count]>1;
                 label.variable = nameVariable;
-                NSString* labelString = [label renderContentForFields:fields formatter:formatter rootElement:rootElement];
+                NSString* labelString = [label renderContentForFields:fields formatter:formatter rootElement:rootElement storeMacrosInDictionary:macros];
                 if(labelString != NULL){
                     [namesString appendString:labelString];
                 }
@@ -1391,7 +1392,7 @@ static const NSInteger NAME_FORM_COUNT=2;
     //Return substitute
     else{
         for(CSLRenderingElement* substitute in substitutes.childElements){
-            NSString* substituteString = [substitute renderContentForFields:fields formatter:formatter rootElement:rootElement];
+            NSString* substituteString = [substitute renderContentForFields:fields formatter:formatter rootElement:rootElement storeMacrosInDictionary:macros];
             if(! [substituteString isEqualToString:@""]) return [self postProcessRenderedString:substituteString];
         }
         return NULL;
@@ -1514,7 +1515,7 @@ static NSRegularExpression* REGEX_FIRST_FOUR_DIGIT_YEAR;
         [super configureWithAttribute:attributeName value:attributeValue formatter:formatter];
     }
 }
--(NSString*) renderContentForFields:(NSMutableDictionary *)fields formatter:(CSLFormatter *)formatter rootElement:(CSLBibliographyOrCitation *)rootElement{
+-(NSString*) renderContentForFields:(NSMutableDictionary *)fields formatter:(CSLFormatter *)formatter rootElement:(CSLBibliographyOrCitation *)rootElement storeMacrosInDictionary:(NSMutableDictionary *)macros{
     NSString* dateValue = [fields objectForKey:self.variable];
     
     NSString* parsedValue = [self _parseDate:dateValue part:DATE_PART_YEAR];
@@ -1670,6 +1671,11 @@ static NSRegularExpression* REGEX_FIRST_FOUR_DIGIT_YEAR;
 }
 
 -(NSString*) formatBibliographyItemUsingVariables:(NSDictionary *)variables{
+    return [self formatBibliographyItemUsingVariables:variables storeMacrosInDictionary:NULL];
+}
+
+-(NSString*) formatBibliographyItemUsingVariables:(NSDictionary*)variables storeMacrosInDictionary:(NSMutableDictionary*) macros{
+
     NSMutableDictionary* renderingDict = [[NSMutableDictionary alloc] initWithCapacity:[variables count]];
     for(NSString* key in variables){
         NSObject* value = [variables objectForKey:key];
@@ -1686,11 +1692,9 @@ static NSRegularExpression* REGEX_FIRST_FOUR_DIGIT_YEAR;
                 
                 //Replace type write double quotes with normal quotes
                 
-                //TODO: Fix this
-                
-                /*
                 else if([value isKindOfClass:[NSString class]]){
                     NSScanner *scanner = [NSScanner scannerWithString:(NSString*)value];
+                    [scanner setCharactersToBeSkipped:nil];
                     NSMutableString* newValue = [NSMutableString string];
                     BOOL foundQuote = YES;
                     int quoteIndex = 0;
@@ -1710,12 +1714,11 @@ static NSRegularExpression* REGEX_FIRST_FOUR_DIGIT_YEAR;
                     value = newValue;
 
                 }
-                 */
                 [renderingDict setObject:value forKey:newKey];
             }
         }
     }
-    return [_bibliography renderContentForFields:renderingDict formatter:self rootElement:_bibliography];
+    return [_bibliography renderContentForFields:renderingDict formatter:self rootElement:_bibliography storeMacrosInDictionary:macros];
 }
 
 -(CSLRenderingElementContainer*) macroWithName:(NSString*)name{

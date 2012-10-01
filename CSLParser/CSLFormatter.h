@@ -35,5 +35,6 @@
  */
 
 -(NSString*) formatBibliographyItemUsingVariables:(NSDictionary*)variables;
+-(NSString*) formatBibliographyItemUsingVariables:(NSDictionary*)variables storeMacrosInDictionary:(NSMutableDictionary*) macros;
 
 @end

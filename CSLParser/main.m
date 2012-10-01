@@ -49,7 +49,8 @@ int main(int argc, const char * argv[])
         NSString* citation = [citationsLines objectAtIndex:i++];
         citation = [citation stringByDecodingHTMLEntities];
         
-        NSString* generatedCitation = [formatter formatBibliographyItemUsingVariables:fields];
+        NSMutableDictionary* macroDict = [[NSMutableDictionary alloc] init];
+        NSString* generatedCitation = [formatter formatBibliographyItemUsingVariables:fields storeMacrosInDictionary:macroDict];
         
         generatedCitation = [generatedCitation stringByConvertingHTMLToPlainText];
         citation = [citation stringByConvertingHTMLToPlainText];
@@ -69,7 +70,7 @@ int main(int argc, const char * argv[])
                 }
             }
                                   
-//            break;
+            break;
         }
     }
     NSLog(@"Done");
