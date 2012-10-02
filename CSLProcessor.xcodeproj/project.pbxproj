@@ -10,8 +10,10 @@
 		A714DEA516130DB30068DF9A /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = A714DEA416130DB30068DF9A /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A714DEA916130E420068DF9A /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = A714DEA816130E420068DF9A /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A736E694161ABAA8004E71AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7D5634A1602F88800324303 /* Foundation.framework */; };
-		A736E699161ABAA8004E71AF /* CSLProcessor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A736E698161ABAA8004E71AF /* CSLProcessor.h */; };
-		A736E69B161ABAA8004E71AF /* CSLProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = A736E69A161ABAA8004E71AF /* CSLProcessor.m */; };
+		A7A6A602161ABF9600C7DB72 /* CSLFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D563F01603060400324303 /* CSLFormatter.m */; };
+		A7A6A603161ABFC500C7DB72 /* typeMap.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = A7D2CCAF1605A4E8003AA307 /* typeMap.xml */; };
+		A7A6A604161ABFC500C7DB72 /* locales-en-US.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = A7D5643A1603AFEA00324303 /* locales-en-US.xml */; };
+		A7A6A605161ABFC500C7DB72 /* apa.csl in CopyFiles */ = {isa = PBXBuildFile; fileRef = A7D563ED160305DD00324303 /* apa.csl */; };
 		A7D2CCB01605A4E8003AA307 /* typeMap.xml in Resources */ = {isa = PBXBuildFile; fileRef = A7D2CCAF1605A4E8003AA307 /* typeMap.xml */; };
 		A7D563CF160304DC00324303 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7D563AE1603046700324303 /* Cocoa.framework */; };
 		A7D563D9160304DC00324303 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7D563D7160304DC00324303 /* InfoPlist.strings */; };
@@ -57,7 +59,9 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				A736E699161ABAA8004E71AF /* CSLProcessor.h in CopyFiles */,
+				A7A6A603161ABFC500C7DB72 /* typeMap.xml in CopyFiles */,
+				A7A6A604161ABFC500C7DB72 /* locales-en-US.xml in CopyFiles */,
+				A7A6A605161ABFC500C7DB72 /* apa.csl in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,13 +72,7 @@
 		A714DEA416130DB30068DF9A /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+HTML.m"; path = "MWFeedParser/Classes/NSString+HTML.m"; sourceTree = "<group>"; };
 		A714DEA716130E420068DF9A /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+HTML.h"; path = "MWFeedParser/Classes/GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		A714DEA816130E420068DF9A /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSString+HTML.m"; path = "MWFeedParser/Classes/GTMNSString+HTML.m"; sourceTree = "<group>"; };
-		A736E687161AB930004E71AF /* CSLFormatter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CSLFormatter-Prefix.pch"; sourceTree = "<group>"; };
-		A736E688161AB930004E71AF /* CSLFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSLFormatter.h; sourceTree = "<group>"; };
-		A736E68A161AB930004E71AF /* CSLFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSLFormatter.m; sourceTree = "<group>"; };
 		A736E693161ABAA8004E71AF /* libCSLProcessor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCSLProcessor.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A736E697161ABAA8004E71AF /* CSLProcessor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CSLProcessor-Prefix.pch"; sourceTree = "<group>"; };
-		A736E698161ABAA8004E71AF /* CSLProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSLProcessor.h; sourceTree = "<group>"; };
-		A736E69A161ABAA8004E71AF /* CSLProcessor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSLProcessor.m; sourceTree = "<group>"; };
 		A7D2CCAF1605A4E8003AA307 /* typeMap.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = typeMap.xml; path = z2csl/typeMap.xml; sourceTree = SOURCE_ROOT; };
 		A7D5634A1602F88800324303 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A7D563801602FD7E00324303 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
@@ -169,48 +167,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A736E685161AB930004E71AF /* CSLFormatter */ = {
-			isa = PBXGroup;
-			children = (
-				A736E688161AB930004E71AF /* CSLFormatter.h */,
-				A736E68A161AB930004E71AF /* CSLFormatter.m */,
-				A736E686161AB930004E71AF /* Supporting Files */,
-			);
-			path = CSLFormatter;
-			sourceTree = "<group>";
-		};
-		A736E686161AB930004E71AF /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A736E687161AB930004E71AF /* CSLFormatter-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		A736E695161ABAA8004E71AF /* CSLProcessor */ = {
-			isa = PBXGroup;
-			children = (
-				A736E698161ABAA8004E71AF /* CSLProcessor.h */,
-				A736E69A161ABAA8004E71AF /* CSLProcessor.m */,
-				A736E696161ABAA8004E71AF /* Supporting Files */,
-			);
-			path = CSLProcessor;
-			sourceTree = "<group>";
-		};
-		A736E696161ABAA8004E71AF /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A736E697161ABAA8004E71AF /* CSLProcessor-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		A7D5633B1602F88800324303 = {
 			isa = PBXGroup;
 			children = (
-				A7D563D4160304DC00324303 /* CSLParser */,
-				A736E685161AB930004E71AF /* CSLFormatter */,
-				A736E695161ABAA8004E71AF /* CSLProcessor */,
+				A7D563D4160304DC00324303 /* CSLProcessor */,
 				A7D563491602F88800324303 /* Frameworks */,
 				A7D563471602F88800324303 /* Products */,
 			);
@@ -285,13 +245,14 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		A7D563D4160304DC00324303 /* CSLParser */ = {
+		A7D563D4160304DC00324303 /* CSLProcessor */ = {
 			isa = PBXGroup;
 			children = (
 				A7D563EF1603060400324303 /* CSLFormatter.h */,
 				A7D563F01603060400324303 /* CSLFormatter.m */,
 				A7D563D5160304DC00324303 /* Supporting Files */,
 			);
+			name = CSLProcessor;
 			path = CSLParser;
 			sourceTree = "<group>";
 		};
@@ -449,7 +410,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A736E69B161ABAA8004E71AF /* CSLProcessor.m in Sources */,
+				A7A6A602161ABF9600C7DB72 /* CSLFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,6 +592,7 @@
 				A736E69E161ABAA8004E71AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A7D563401602F88800324303 /* Build configuration list for PBXProject "CSLProcessor" */ = {
 			isa = XCConfigurationList;
