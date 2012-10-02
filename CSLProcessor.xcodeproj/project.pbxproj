@@ -14,6 +14,7 @@
 		A7A6A603161ABFC500C7DB72 /* typeMap.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = A7D2CCAF1605A4E8003AA307 /* typeMap.xml */; };
 		A7A6A604161ABFC500C7DB72 /* locales-en-US.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = A7D5643A1603AFEA00324303 /* locales-en-US.xml */; };
 		A7A6A605161ABFC500C7DB72 /* apa.csl in CopyFiles */ = {isa = PBXBuildFile; fileRef = A7D563ED160305DD00324303 /* apa.csl */; };
+		A7A6A60A161AC75E00C7DB72 /* CSLFormatter.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A7D563EF1603060400324303 /* CSLFormatter.h */; };
 		A7D2CCB01605A4E8003AA307 /* typeMap.xml in Resources */ = {isa = PBXBuildFile; fileRef = A7D2CCAF1605A4E8003AA307 /* typeMap.xml */; };
 		A7D563CF160304DC00324303 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7D563AE1603046700324303 /* Cocoa.framework */; };
 		A7D563D9160304DC00324303 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7D563D7160304DC00324303 /* InfoPlist.strings */; };
@@ -59,6 +60,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				A7A6A60A161AC75E00C7DB72 /* CSLFormatter.h in CopyFiles */,
 				A7A6A603161ABFC500C7DB72 /* typeMap.xml in CopyFiles */,
 				A7A6A604161ABFC500C7DB72 /* locales-en-US.xml in CopyFiles */,
 				A7A6A605161ABFC500C7DB72 /* apa.csl in CopyFiles */,
