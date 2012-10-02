@@ -15,11 +15,10 @@
 		A7A6A604161ABFC500C7DB72 /* locales-en-US.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = A7D5643A1603AFEA00324303 /* locales-en-US.xml */; };
 		A7A6A605161ABFC500C7DB72 /* apa.csl in CopyFiles */ = {isa = PBXBuildFile; fileRef = A7D563ED160305DD00324303 /* apa.csl */; };
 		A7A6A610161ACACD00C7DB72 /* CSLFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = A7D563EF1603060400324303 /* CSLFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7A6A617161AD3E100C7DB72 /* CSLProcessor-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = A7A6A616161AD3E100C7DB72 /* CSLProcessor-Prefix.pch */; };
 		A7D2CCB01605A4E8003AA307 /* typeMap.xml in Resources */ = {isa = PBXBuildFile; fileRef = A7D2CCAF1605A4E8003AA307 /* typeMap.xml */; };
 		A7D563CF160304DC00324303 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7D563AE1603046700324303 /* Cocoa.framework */; };
-		A7D563D9160304DC00324303 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7D563D7160304DC00324303 /* InfoPlist.strings */; };
 		A7D563DB160304DC00324303 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D563DA160304DC00324303 /* main.m */; };
-		A7D563DF160304DC00324303 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A7D563DD160304DC00324303 /* Credits.rtf */; };
 		A7D563EB1603059900324303 /* citations.txt in Resources */ = {isa = PBXBuildFile; fileRef = A7D563E91603059900324303 /* citations.txt */; };
 		A7D563EC1603059900324303 /* json.txt in Resources */ = {isa = PBXBuildFile; fileRef = A7D563EA1603059900324303 /* json.txt */; };
 		A7D563EE160305DD00324303 /* apa.csl in Resources */ = {isa = PBXBuildFile; fileRef = A7D563ED160305DD00324303 /* apa.csl */; };
@@ -74,6 +73,7 @@
 		A714DEA716130E420068DF9A /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+HTML.h"; path = "MWFeedParser/Classes/GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		A714DEA816130E420068DF9A /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSString+HTML.m"; path = "MWFeedParser/Classes/GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		A736E693161ABAA8004E71AF /* libCSLProcessor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCSLProcessor.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7A6A616161AD3E100C7DB72 /* CSLProcessor-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CSLProcessor-Prefix.pch"; path = "CSLProcessor/CSLProcessor-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		A7D2CCAF1605A4E8003AA307 /* typeMap.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = typeMap.xml; path = z2csl/typeMap.xml; sourceTree = SOURCE_ROOT; };
 		A7D5634A1602F88800324303 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A7D563801602FD7E00324303 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
@@ -106,16 +106,13 @@
 		A7D563D1160304DC00324303 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		A7D563D2160304DC00324303 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A7D563D3160304DC00324303 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		A7D563D6160304DC00324303 /* CSLProcessor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CSLProcessor-Info.plist"; sourceTree = "<group>"; };
-		A7D563D8160304DC00324303 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A7D563DA160304DC00324303 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A7D563DC160304DC00324303 /* CSLProcessor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CSLProcessor-Prefix.pch"; sourceTree = "<group>"; };
-		A7D563DE160304DC00324303 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		A7D563E91603059900324303 /* citations.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = citations.txt; sourceTree = "<group>"; };
-		A7D563EA1603059900324303 /* json.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = json.txt; sourceTree = "<group>"; };
+		A7D563D6160304DC00324303 /* CSLProcessor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CSLProcessor-Info.plist"; path = "../CSLProcessor/CSLProcessor-Info.plist"; sourceTree = "<group>"; };
+		A7D563DA160304DC00324303 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../CSLProcessor/main.m; sourceTree = "<group>"; };
+		A7D563E91603059900324303 /* citations.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = citations.txt; path = ../CSLProcessor/citations.txt; sourceTree = "<group>"; };
+		A7D563EA1603059900324303 /* json.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = json.txt; path = ../CSLProcessor/json.txt; sourceTree = "<group>"; };
 		A7D563ED160305DD00324303 /* apa.csl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = apa.csl; path = styles/apa.csl; sourceTree = SOURCE_ROOT; };
-		A7D563EF1603060400324303 /* CSLFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSLFormatter.h; sourceTree = "<group>"; };
-		A7D563F01603060400324303 /* CSLFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSLFormatter.m; sourceTree = "<group>"; };
+		A7D563EF1603060400324303 /* CSLFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSLFormatter.h; path = CSLProcessor/CSLFormatter.h; sourceTree = SOURCE_ROOT; };
+		A7D563F01603060400324303 /* CSLFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSLFormatter.m; path = CSLProcessor/CSLFormatter.m; sourceTree = SOURCE_ROOT; };
 		A7D5640316030C8F00324303 /* CXMLDocument_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument_CreationExtensions.h; sourceTree = "<group>"; };
 		A7D5640416030C8F00324303 /* CXMLDocument_CreationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLDocument_CreationExtensions.m; sourceTree = "<group>"; };
 		A7D5640516030C8F00324303 /* CXMLNode_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode_CreationExtensions.h; sourceTree = "<group>"; };
@@ -260,16 +257,14 @@
 		A7D563D5160304DC00324303 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A7A6A616161AD3E100C7DB72 /* CSLProcessor-Prefix.pch */,
 				A7D2CCAF1605A4E8003AA307 /* typeMap.xml */,
 				A7D5643A1603AFEA00324303 /* locales-en-US.xml */,
 				A7D563ED160305DD00324303 /* apa.csl */,
 				A7D563E91603059900324303 /* citations.txt */,
 				A7D563EA1603059900324303 /* json.txt */,
 				A7D563D6160304DC00324303 /* CSLProcessor-Info.plist */,
-				A7D563D7160304DC00324303 /* InfoPlist.strings */,
 				A7D563DA160304DC00324303 /* main.m */,
-				A7D563DC160304DC00324303 /* CSLProcessor-Prefix.pch */,
-				A7D563DD160304DC00324303 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -333,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7A6A610161ACACD00C7DB72 /* CSLFormatter.h in Headers */,
+				A7A6A617161AD3E100C7DB72 /* CSLProcessor-Prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,8 +402,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7D563D9160304DC00324303 /* InfoPlist.strings in Resources */,
-				A7D563DF160304DC00324303 /* Credits.rtf in Resources */,
 				A7D563EB1603059900324303 /* citations.txt in Resources */,
 				A7D563EC1603059900324303 /* json.txt in Resources */,
 				A7D563EE160305DD00324303 /* apa.csl in Resources */,
@@ -465,29 +459,11 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		A7D563D7160304DC00324303 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A7D563D8160304DC00324303 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		A7D563DD160304DC00324303 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A7D563DE160304DC00324303 /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		A736E69D161ABAA8004E71AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
 				DSTROOT = /tmp/CSLProcessor.dst;
@@ -504,6 +480,7 @@
 		A736E69E161ABAA8004E71AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
 				DSTROOT = /tmp/CSLProcessor.dst;
@@ -541,6 +518,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-lxml2";
@@ -565,6 +543,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_LDFLAGS = "-lxml2";
 				SDKROOT = macosx;
