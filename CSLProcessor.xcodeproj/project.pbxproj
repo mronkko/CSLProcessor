@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		A714DEA516130DB30068DF9A /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = A714DEA416130DB30068DF9A /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A714DEA916130E420068DF9A /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = A714DEA816130E420068DF9A /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A736E694161ABAA8004E71AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7D5634A1602F88800324303 /* Foundation.framework */; };
+		A736E699161ABAA8004E71AF /* CSLProcessor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A736E698161ABAA8004E71AF /* CSLProcessor.h */; };
+		A736E69B161ABAA8004E71AF /* CSLProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = A736E69A161ABAA8004E71AF /* CSLProcessor.m */; };
 		A7D2CCB01605A4E8003AA307 /* typeMap.xml in Resources */ = {isa = PBXBuildFile; fileRef = A7D2CCAF1605A4E8003AA307 /* typeMap.xml */; };
 		A7D563CF160304DC00324303 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7D563AE1603046700324303 /* Cocoa.framework */; };
 		A7D563D9160304DC00324303 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7D563D7160304DC00324303 /* InfoPlist.strings */; };
@@ -47,11 +50,31 @@
 		A7D5643B1603AFEA00324303 /* locales-en-US.xml in Resources */ = {isa = PBXBuildFile; fileRef = A7D5643A1603AFEA00324303 /* locales-en-US.xml */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A736E691161ABAA8004E71AF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				A736E699161ABAA8004E71AF /* CSLProcessor.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		A714DEA316130DB30068DF9A /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+HTML.h"; path = "MWFeedParser/Classes/NSString+HTML.h"; sourceTree = "<group>"; };
 		A714DEA416130DB30068DF9A /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+HTML.m"; path = "MWFeedParser/Classes/NSString+HTML.m"; sourceTree = "<group>"; };
 		A714DEA716130E420068DF9A /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+HTML.h"; path = "MWFeedParser/Classes/GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		A714DEA816130E420068DF9A /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSString+HTML.m"; path = "MWFeedParser/Classes/GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		A736E687161AB930004E71AF /* CSLFormatter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CSLFormatter-Prefix.pch"; sourceTree = "<group>"; };
+		A736E688161AB930004E71AF /* CSLFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSLFormatter.h; sourceTree = "<group>"; };
+		A736E68A161AB930004E71AF /* CSLFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSLFormatter.m; sourceTree = "<group>"; };
+		A736E693161ABAA8004E71AF /* libCSLProcessor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCSLProcessor.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A736E697161ABAA8004E71AF /* CSLProcessor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CSLProcessor-Prefix.pch"; sourceTree = "<group>"; };
+		A736E698161ABAA8004E71AF /* CSLProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSLProcessor.h; sourceTree = "<group>"; };
+		A736E69A161ABAA8004E71AF /* CSLProcessor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSLProcessor.m; sourceTree = "<group>"; };
 		A7D2CCAF1605A4E8003AA307 /* typeMap.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = typeMap.xml; path = z2csl/typeMap.xml; sourceTree = SOURCE_ROOT; };
 		A7D5634A1602F88800324303 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A7D563801602FD7E00324303 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
@@ -80,14 +103,14 @@
 		A7D563971602FD7E00324303 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		A7D563981602FD7E00324303 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		A7D563AE1603046700324303 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		A7D563CD160304DC00324303 /* CSLParser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSLParser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7D563CD160304DC00324303 /* CSLProcessorTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSLProcessorTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7D563D1160304DC00324303 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		A7D563D2160304DC00324303 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A7D563D3160304DC00324303 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		A7D563D6160304DC00324303 /* CSLParser-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CSLParser-Info.plist"; sourceTree = "<group>"; };
+		A7D563D6160304DC00324303 /* CSLProcessor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CSLProcessor-Info.plist"; sourceTree = "<group>"; };
 		A7D563D8160304DC00324303 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A7D563DA160304DC00324303 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A7D563DC160304DC00324303 /* CSLParser-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CSLParser-Prefix.pch"; sourceTree = "<group>"; };
+		A7D563DC160304DC00324303 /* CSLProcessor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CSLProcessor-Prefix.pch"; sourceTree = "<group>"; };
 		A7D563DE160304DC00324303 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		A7D563E91603059900324303 /* citations.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = citations.txt; sourceTree = "<group>"; };
 		A7D563EA1603059900324303 /* json.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = json.txt; sourceTree = "<group>"; };
@@ -126,6 +149,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A736E690161ABAA8004E71AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A736E694161ABAA8004E71AF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A7D563CA160304DC00324303 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -138,10 +169,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A736E685161AB930004E71AF /* CSLFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				A736E688161AB930004E71AF /* CSLFormatter.h */,
+				A736E68A161AB930004E71AF /* CSLFormatter.m */,
+				A736E686161AB930004E71AF /* Supporting Files */,
+			);
+			path = CSLFormatter;
+			sourceTree = "<group>";
+		};
+		A736E686161AB930004E71AF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A736E687161AB930004E71AF /* CSLFormatter-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A736E695161ABAA8004E71AF /* CSLProcessor */ = {
+			isa = PBXGroup;
+			children = (
+				A736E698161ABAA8004E71AF /* CSLProcessor.h */,
+				A736E69A161ABAA8004E71AF /* CSLProcessor.m */,
+				A736E696161ABAA8004E71AF /* Supporting Files */,
+			);
+			path = CSLProcessor;
+			sourceTree = "<group>";
+		};
+		A736E696161ABAA8004E71AF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A736E697161ABAA8004E71AF /* CSLProcessor-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		A7D5633B1602F88800324303 = {
 			isa = PBXGroup;
 			children = (
 				A7D563D4160304DC00324303 /* CSLParser */,
+				A736E685161AB930004E71AF /* CSLFormatter */,
+				A736E695161ABAA8004E71AF /* CSLProcessor */,
 				A7D563491602F88800324303 /* Frameworks */,
 				A7D563471602F88800324303 /* Products */,
 			);
@@ -150,7 +219,8 @@
 		A7D563471602F88800324303 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A7D563CD160304DC00324303 /* CSLParser.app */,
+				A7D563CD160304DC00324303 /* CSLProcessorTest.app */,
+				A736E693161ABAA8004E71AF /* libCSLProcessor.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -233,10 +303,10 @@
 				A7D563ED160305DD00324303 /* apa.csl */,
 				A7D563E91603059900324303 /* citations.txt */,
 				A7D563EA1603059900324303 /* json.txt */,
-				A7D563D6160304DC00324303 /* CSLParser-Info.plist */,
+				A7D563D6160304DC00324303 /* CSLProcessor-Info.plist */,
 				A7D563D7160304DC00324303 /* InfoPlist.strings */,
 				A7D563DA160304DC00324303 /* main.m */,
-				A7D563DC160304DC00324303 /* CSLParser-Prefix.pch */,
+				A7D563DC160304DC00324303 /* CSLProcessor-Prefix.pch */,
 				A7D563DD160304DC00324303 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
@@ -296,9 +366,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A7D563CC160304DC00324303 /* CSLParser */ = {
+		A736E692161ABAA8004E71AF /* CSLProcessor */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A7D563E6160304DC00324303 /* Build configuration list for PBXNativeTarget "CSLParser" */;
+			buildConfigurationList = A736E69C161ABAA8004E71AF /* Build configuration list for PBXNativeTarget "CSLProcessor" */;
+			buildPhases = (
+				A736E68F161ABAA8004E71AF /* Sources */,
+				A736E690161ABAA8004E71AF /* Frameworks */,
+				A736E691161ABAA8004E71AF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CSLProcessor;
+			productName = CSLProcessor;
+			productReference = A736E693161ABAA8004E71AF /* libCSLProcessor.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		A7D563CC160304DC00324303 /* CSLProcessorTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7D563E6160304DC00324303 /* Build configuration list for PBXNativeTarget "CSLProcessorTest" */;
 			buildPhases = (
 				A7D563C9160304DC00324303 /* Sources */,
 				A7D563CA160304DC00324303 /* Frameworks */,
@@ -308,9 +395,9 @@
 			);
 			dependencies = (
 			);
-			name = CSLParser;
+			name = CSLProcessorTest;
 			productName = CSLParser;
-			productReference = A7D563CD160304DC00324303 /* CSLParser.app */;
+			productReference = A7D563CD160304DC00324303 /* CSLProcessorTest.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -322,7 +409,7 @@
 				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = "Rönkkö Mikko";
 			};
-			buildConfigurationList = A7D563401602F88800324303 /* Build configuration list for PBXProject "CSLParser" */;
+			buildConfigurationList = A7D563401602F88800324303 /* Build configuration list for PBXProject "CSLProcessor" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -334,7 +421,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A7D563CC160304DC00324303 /* CSLParser */,
+				A7D563CC160304DC00324303 /* CSLProcessorTest */,
+				A736E692161ABAA8004E71AF /* CSLProcessor */,
 			);
 		};
 /* End PBXProject section */
@@ -357,6 +445,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A736E68F161ABAA8004E71AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A736E69B161ABAA8004E71AF /* CSLProcessor.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A7D563C9160304DC00324303 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -415,6 +511,39 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A736E69D161ABAA8004E71AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				DSTROOT = /tmp/CSLProcessor.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CSLProcessor/CSLProcessor-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A736E69E161ABAA8004E71AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				DSTROOT = /tmp/CSLProcessor.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CSLProcessor/CSLProcessor-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		A7D563531602F88800324303 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -473,9 +602,9 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CSLParser/CSLParser-Prefix.pch";
-				INFOPLIST_FILE = "CSLParser/CSLParser-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "CSLParser/CSLProcessor-Prefix.pch";
+				INFOPLIST_FILE = "CSLParser/CSLProcessor-Info.plist";
+				PRODUCT_NAME = CSLProcessorTest;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -485,9 +614,9 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CSLParser/CSLParser-Prefix.pch";
-				INFOPLIST_FILE = "CSLParser/CSLParser-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "CSLParser/CSLProcessor-Prefix.pch";
+				INFOPLIST_FILE = "CSLParser/CSLProcessor-Info.plist";
+				PRODUCT_NAME = CSLProcessorTest;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -495,7 +624,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A7D563401602F88800324303 /* Build configuration list for PBXProject "CSLParser" */ = {
+		A736E69C161ABAA8004E71AF /* Build configuration list for PBXNativeTarget "CSLProcessor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A736E69D161ABAA8004E71AF /* Debug */,
+				A736E69E161ABAA8004E71AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A7D563401602F88800324303 /* Build configuration list for PBXProject "CSLProcessor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A7D563531602F88800324303 /* Debug */,
@@ -504,7 +641,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A7D563E6160304DC00324303 /* Build configuration list for PBXNativeTarget "CSLParser" */ = {
+		A7D563E6160304DC00324303 /* Build configuration list for PBXNativeTarget "CSLProcessorTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A7D563E7160304DC00324303 /* Debug */,
