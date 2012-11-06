@@ -41,9 +41,18 @@ static const NSInteger FORM_SYMBOL = 4;
 
 -(id)initWithXMLElement:(CXMLElement*)element{
     self = [super init];
-    if([element childCount]==2){
-        self.single = [(CXMLElement*)[[element nodesForXPath:@"//ns:single" namespaceMappings:nameSpaceMapping error:NULL] objectAtIndex:0] stringValue];
-        self.multiple = [(CXMLElement*)[[element nodesForXPath:@"//ns:multiple" namespaceMappings:nameSpaceMapping error:NULL] objectAtIndex:0] stringValue];
+    if([element childCount]>1){
+        for(CXMLNode* child in element.children){
+            if([child isKindOfClass:[CXMLElement class]]){
+                CXMLElement* childElement = (CXMLElement*) child;
+                if([childElement.name isEqualToString:@"single"]){
+                    self.single = childElement.stringValue;
+                }
+                else if([childElement.name isEqualToString:@"multiple"]){
+                    self.multiple = childElement.stringValue;
+                }
+            }
+        }
     }
     else{
         self.single = [element stringValue];
@@ -231,6 +240,7 @@ static const NSInteger FORM_SYMBOL = 4;
         NSString* attributeValue = [[termElement attributeForName:@"form"] stringValue];
         
         NSString* name = [[termElement attributeForName:@"name"] stringValue];
+     
         if(attributeValue!=NULL && ![ attributeValue isEqualToString:@"long"]){
             CSLLocaleTerm* term= [dict objectForKey:name];
             CSLLocaleTerm* altenativeForm = [[CSLLocaleTerm alloc] initWithXMLElement:termElement];
@@ -1285,7 +1295,7 @@ static NSRegularExpression* REGEX_ROMANESQUE;
                     
                     if(delimiterPrecedesLast == DELIMITER_PRECEEDS_LAST_ALWAYS ||
                        (delimiterPrecedesLast == DELIMITER_PRECEEDS_LAST_AFTER_INVERTED_NAME && invertNameOrder) ||
-                       delimiterPrecedesLast == DELIMITER_PRECEEDS_LAST_CONTEXTUAL){
+                       (delimiterPrecedesLast == DELIMITER_PRECEEDS_LAST_CONTEXTUAL && [namesObjects count]>2)){
                         [namesString appendString:delimiter];
                     }
                     
@@ -1300,6 +1310,7 @@ static NSRegularExpression* REGEX_ROMANESQUE;
                             and = @"&";
                         }
                         if(and!=NULL){
+                            [namesString appendString:@" "];
                             [namesString appendString:and];
                             [namesString appendString:@" "];
                         }
@@ -1310,58 +1321,65 @@ static NSRegularExpression* REGEX_ROMANESQUE;
 
                 
                 if(lastName != NULL){
-                    NSMutableString* firstName = [[NSMutableString alloc] init];
                     
                     //TODO: Make [NSCharacterSet characterSetWithCharactersInString:@". "] a class variable:
-                    
-                    NSArray* parts = [[creator objectForKey:@"firstName"] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@". "]];
-                    for(NSString* firstNamePart in parts){
-                        
-                        if(REGEX_ROMANESQUE == NULL){
-                            //This might need to be fixed to include also other characters
-                            REGEX_ROMANESQUE =[[NSRegularExpression alloc] initWithPattern:@"[a-zA-Z]" options:NULL error:NULL];
-                        }
-                        
-                        if([REGEX_ROMANESQUE rangeOfFirstMatchInString:firstNamePart options:NULL range:NSMakeRange(0, [firstNamePart length])].location != NSNotFound ){
-                            //Support for hyphens
-                            NSString* firstNamePartCleaned = [firstNamePart stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@". "]];
+                    NSString* firstNameData = [creator objectForKey:@"firstName"];
+
+                    if([firstNameData length]>0){
+
+                        NSMutableString* firstName = [[NSMutableString alloc] init];
+
+                        NSArray* parts = [firstNameData componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@". "]];
+                        for(NSString* firstNamePart in parts){
                             
-                            if([firstNamePartCleaned length]>0){
-                                NSArray* subParts = [firstNamePartCleaned componentsSeparatedByString:@"-"];
-                                NSInteger counter =0;
-                                for(NSString* firstNameSubPart in subParts){
-                                    [firstName appendString:[[firstNameSubPart substringToIndex:1] uppercaseString]];
-                                    if(++counter<[subParts count]){
-                                        [firstName appendString:[initializeWith stringByReplacingOccurrencesOfString:@" " withString:@""]];
-                                        [firstName appendString:@"-"];
-                                    }
-                                    else{
-                                        [firstName appendString:initializeWith];
+                            if(REGEX_ROMANESQUE == NULL){
+                                //This might need to be fixed to include also other characters
+                                REGEX_ROMANESQUE =[[NSRegularExpression alloc] initWithPattern:@"[a-zA-Z]" options:NULL error:NULL];
+                            }
+                            
+                            if([REGEX_ROMANESQUE rangeOfFirstMatchInString:firstNamePart options:NULL range:NSMakeRange(0, [firstNamePart length])].location != NSNotFound ){
+                                //Support for hyphens
+                                NSString* firstNamePartCleaned = [firstNamePart stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@". "]];
+                                
+                                if([firstNamePartCleaned length]>0){
+                                    NSArray* subParts = [firstNamePartCleaned componentsSeparatedByString:@"-"];
+                                    NSInteger counter =0;
+                                    for(NSString* firstNameSubPart in subParts){
+                                        [firstName appendString:[[firstNameSubPart substringToIndex:1] uppercaseString]];
+                                        if(++counter<[subParts count]){
+                                            [firstName appendString:[initializeWith stringByReplacingOccurrencesOfString:@" " withString:@""]];
+                                            [firstName appendString:@"-"];
+                                        }
+                                        else{
+                                            [firstName appendString:initializeWith];
+                                        }
                                     }
                                 }
                             }
+                            else{
+                                [firstName appendString:firstNamePart];
+                            }
                         }
-                        else{
-                            [firstName appendString:firstNamePart];
-                        }
-                        
-                    }
                     
-                    if(invertNameOrder){
-                        [namesString appendString:lastName];
-                        [namesString appendString:sortSeparator];
-                        if([firstName hasSuffix:@" "]){
-                            [namesString appendString:[firstName substringToIndex:[firstName length]-1]];
+                        if(invertNameOrder){
+                            [namesString appendString:lastName];
+                            [namesString appendString:sortSeparator];
+                            if([firstName hasSuffix:@" "]){
+                                [namesString appendString:[firstName substringToIndex:[firstName length]-1]];
+                            }
+                            else{
+                                [namesString appendString:firstName];
+                            }
                         }
                         else{
                             [namesString appendString:firstName];
+                            [namesString appendString:lastName];
                         }
                     }
+                    // No first name
                     else{
-                        [namesString appendString:firstName];
                         [namesString appendString:lastName];
                     }
-                    
                 }
                 else{
                     [NSException raise:@"Not implemented" format:@"Rendering of non-personal names has not been implemented"];
@@ -1470,6 +1488,10 @@ static const NSInteger DATE_PART_MONTH = 2;
 static const NSInteger DATE_PART_YEAR = 3;
 
 static NSRegularExpression* REGEX_FIRST_FOUR_DIGIT_YEAR;
+static NSRegularExpression* REGEX_MONTH;
+static NSRegularExpression* REGEX_DAY;
+
+static NSArray* MONTH_NAMES;
 
 @synthesize variable;
 
@@ -1518,7 +1540,7 @@ static NSRegularExpression* REGEX_FIRST_FOUR_DIGIT_YEAR;
 -(NSString*) renderContentForFields:(NSMutableDictionary *)fields formatter:(CSLFormatter *)formatter rootElement:(CSLBibliographyOrCitation *)rootElement storeMacrosInDictionary:(NSMutableDictionary *)macros{
     NSString* dateValue = [fields objectForKey:self.variable];
     
-    NSString* parsedValue = [self _parseDate:dateValue part:DATE_PART_YEAR];
+    NSString* parsedValue = [self _parseDate:dateValue part:datePart];
     if(parsedValue!=NULL){
         return [self postProcessRenderedString:parsedValue];
     }
@@ -1551,7 +1573,38 @@ static NSRegularExpression* REGEX_FIRST_FOUR_DIGIT_YEAR;
         }
         else return dateValue;
     }
+    else if(datePart == DATE_PART_MONTH){
+        if(REGEX_MONTH == NULL){
+            REGEX_MONTH = [NSRegularExpression regularExpressionWithPattern:@"-[0-1][0-9]-" options:0 error:NULL];
+        }
+        if(MONTH_NAMES == NULL){
+            MONTH_NAMES = [NSArray arrayWithObjects:@"January", @"February", @"March", @"April", @"May", @"June", @"July", @"August", @"September", @"October", @"November", @"December", nil];
+        }
 
+        NSRange rangeOfFirstMatch = [REGEX_MONTH rangeOfFirstMatchInString:dateValue options:0 range:NSMakeRange(0, [dateValue length])];
+        if (!NSEqualRanges(rangeOfFirstMatch, NSMakeRange(NSNotFound, 0))) {
+            NSString *substringForFirstMatch = [dateValue substringWithRange:NSMakeRange(rangeOfFirstMatch.location+1, 2)];
+            return [MONTH_NAMES objectAtIndex:[substringForFirstMatch integerValue]-1];
+            
+        }
+    }
+    else if(datePart == DATE_PART_DAY){
+        if(REGEX_DAY == NULL){
+            REGEX_DAY = [NSRegularExpression regularExpressionWithPattern:@"-[0-3][0-9] " options:0 error:NULL];
+        }
+        NSRange rangeOfFirstMatch = [REGEX_DAY rangeOfFirstMatchInString:dateValue options:0 range:NSMakeRange(0, [dateValue length])];
+        if (!NSEqualRanges(rangeOfFirstMatch, NSMakeRange(NSNotFound, 0))) {
+            NSString *substringForFirstMatch = [dateValue substringWithRange:NSMakeRange(rangeOfFirstMatch.location+1, 2)];
+
+            if([substringForFirstMatch hasPrefix:@"0"]){
+                return [substringForFirstMatch substringFromIndex:1];
+            }
+            else{
+                return substringForFirstMatch;
+            }
+        }
+    }
+    
     return NULL;
 
 }
@@ -1604,6 +1657,23 @@ static NSRegularExpression* REGEX_FIRST_FOUR_DIGIT_YEAR;
         }
         
         [dict setObject:[NSArray arrayWithObject:@"type"] forKey:@"itemType"];
+        
+        //Set the field maps based on type map entries e.g.
+        //<field value="websiteTitle" baseField="publicationTitle" />
+        
+        
+        for(CXMLElement* element in [fieldMapDoc nodesForXPath:@"//field[@baseField]" error:NULL]){
+            NSString* key = [(CXMLNode*) [[element attributes] objectAtIndex:0] stringValue];
+            NSString* valueKey = [(CXMLNode*) [[element attributes] objectAtIndex:1] stringValue];
+            
+/*
+            if([dict objectForKey:key]){
+                [NSException raise:@"Not implemented" format:@""];
+            }
+ */
+            [dict setObject:[dict objectForKey:valueKey]
+                     forKey:key];
+        }
         
         fieldMap = [NSDictionary dictionaryWithDictionary:dict];
 

@@ -48,3 +48,8 @@ McArdle, J. J., &amp; Epstein, D. (1987). Latent Growth Curves within Developmen
 i c X bM, Y. (2004). SPSS and SAS procedures for estimating indirect effects in simple mediation models. <i>Behavior Research Methods, Instruments, &amp; Computers</i>, 36(4), 717&#x2013;731.
 MacCallum, R. C., &amp; Austin, J. T. (2000). Applications of structural equation modeling in psychological research. <i>Annual Review of Psychology</i>, 51(1), 201. doi:Article
 Little, T. D., &amp; Slegers, D. W. (2005). Factor analysis: Multiple groups. <i>&amp; D. Rindskopf (Section Ed.), Encyclopedia of statistics in behavioral science</i>, 2, 617&#x2013;623.
+Thong, J. Y. L., Chee-Sing Yap, & Raman, K. S. (1996). Top Management Support, External Expertise and Information Systems Implementation in Small Businesses. <i>Information Systems Research</i>, 7(2), 248–267. doi:Article
+Bookstein, F. L. (1982). The geometric meaning of soft modeling, with some generalizations. In K. Jöreskog & S. Wold (Eds.), <i>Systems under indirect observation : causality, structure, prediction</i>. Amsterdam ;;New York  ;New York: North-Holland ;;Sole distributors for the U.S.A. and Canada  Elsevier Science Publishers.
+Tenenhaus, M. (1999). L’approche  PLS. <i>Revue de statistique appliquée</i>, 47, 5–40. Retrieved from http://matisse.univ-paris1.fr/fr/IMG/pdf/TENENHAUS-approche_pls-7OCT04.pdf
+Bjørn-Helge Mevik, & Ron Wehrens. (2007). The pls Package:  Principal Component and Partial Least Squares Regression in R. <i>Journal of Statistical Software</i>, 18. Retrieved from http://www.jstatsoft.org/v18/i02/paper
+Chin, W. W. (1997). Overview of the PLS Method. Retrieved October 12, 2010, from http://disc-nt.cba.uh.edu/chin/PLSINTRO.HTM

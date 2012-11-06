@@ -31,7 +31,6 @@ int main(int argc, const char * argv[])
     NSInteger i = 0;
     for(NSString* line in lines){
         
-
         NSMutableDictionary* fields = [NSMutableDictionary dictionaryWithDictionary:[line JSONValue]];
         
         //Get creators as separate variables
@@ -47,30 +46,33 @@ int main(int argc, const char * argv[])
         }
         
         NSString* citation = [citationsLines objectAtIndex:i++];
-        citation = [citation stringByDecodingHTMLEntities];
         
-        NSMutableDictionary* macroDict = [[NSMutableDictionary alloc] init];
-        NSString* generatedCitation = [formatter formatBibliographyItemUsingVariables:fields storeMacrosInDictionary:macroDict];
-        
-        generatedCitation = [generatedCitation stringByConvertingHTMLToPlainText];
-        citation = [citation stringByConvertingHTMLToPlainText];
-        
-        if(! [generatedCitation isEqualToString:citation]){
-            NSLog(@"\n%i\n%@\n\nGenerated: '%@'\nOriginal:  '%@'\n\n",i, line, generatedCitation,citation);
+        if(i>54){
+            citation = [citation stringByDecodingHTMLEntities];
             
-            NSInteger limit = MIN([generatedCitation length],[citation length]);
+            NSMutableDictionary* macroDict = [[NSMutableDictionary alloc] init];
+            NSString* generatedCitation = [formatter formatBibliographyItemUsingVariables:fields storeMacrosInDictionary:macroDict];
             
-            for(NSInteger j=0;j<limit;++j){
-                unichar g = [generatedCitation characterAtIndex:j];
-                unichar o = [citation characterAtIndex:j];
+            generatedCitation = [generatedCitation stringByConvertingHTMLToPlainText];
+            citation = [citation stringByConvertingHTMLToPlainText];
+            
+            if(! [generatedCitation isEqualToString:citation]){
+                NSLog(@"\n%i\n%@\n\nGenerated: '%@'\nOriginal:  '%@'\n\n",i, line, generatedCitation,citation);
                 
-                if(o!=g){
-                    NSString* charString = [generatedCitation substringWithRange:NSMakeRange(j, 1)];
-                    NSLog(@"Character at %i (%@) differs. Original: %i Generated: %i",j,charString,(NSInteger) o, (NSInteger) g);
+                NSInteger limit = MIN([generatedCitation length],[citation length]);
+                
+                for(NSInteger j=0;j<limit;++j){
+                    unichar g = [generatedCitation characterAtIndex:j];
+                    unichar o = [citation characterAtIndex:j];
+                    
+                    if(o!=g){
+                        NSString* charString = [generatedCitation substringWithRange:NSMakeRange(j, 1)];
+                        NSLog(@"Character at %i (%@) differs. Original: %i Generated: %i",j,charString,(NSInteger) o, (NSInteger) g);
+                    }
                 }
+                
+                break;
             }
-                                  
-            break;
         }
     }
     NSLog(@"Done");
