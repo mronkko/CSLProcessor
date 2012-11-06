@@ -1566,6 +1566,13 @@ static NSRegularExpression* REGEX_FIRST_FOUR_DIGIT_YEAR;
 
 -(id) initWithCSLFile:(NSString*)cslPath localeFile:(NSString *)localePath fieldMapFile:(NSString *)fieldMapPath{
 
+    if(![[NSFileManager defaultManager] fileExistsAtPath:cslPath]){
+        [NSException raise:@"File not found" format:@"CSL style file not found: %@",cslPath];
+    }
+    if(![[NSFileManager defaultManager] fileExistsAtPath:localePath]){
+        [NSException raise:@"File not found" format:@"CSL locale file not found: %@",localePath];
+    }
+
     self = [super init];
     
     nameSpaceMapping = [NSDictionary dictionaryWithObject:@"http://purl.org/net/xbiblio/csl" forKey:@"ns"];
