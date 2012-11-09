@@ -55,8 +55,53 @@
 		A7A6A603161ABFC500C7DB72 /* typeMap.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = A7D2CCAF1605A4E8003AA307 /* typeMap.xml */; };
 		A7A6A604161ABFC500C7DB72 /* locales-en-US.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = A7D5643A1603AFEA00324303 /* locales-en-US.xml */; };
 		A7A6A605161ABFC500C7DB72 /* apa.csl in CopyFiles */ = {isa = PBXBuildFile; fileRef = A7D563ED160305DD00324303 /* apa.csl */; };
-		A7A6A610161ACACD00C7DB72 /* CSLFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = A7D563EF1603060400324303 /* CSLFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7A6A610161ACACD00C7DB72 /* CSLFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = A7D563EF1603060400324303 /* CSLFormatter.h */; settings = {ATTRIBUTES = (); }; };
 		A7A6A617161AD3E100C7DB72 /* CSLProcessor-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = A7A6A616161AD3E100C7DB72 /* CSLProcessor-Prefix.pch */; };
+		A7B28C06164D3FB0002F9A71 /* CSLNames.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B28C04164D3FB0002F9A71 /* CSLNames.h */; };
+		A7B28C07164D3FB0002F9A71 /* CSLNames.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B28C05164D3FB0002F9A71 /* CSLNames.m */; };
+		A7B28C08164D3FB0002F9A71 /* CSLNames.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B28C05164D3FB0002F9A71 /* CSLNames.m */; };
+		A7B28C0B164D4834002F9A71 /* CSLRenderingElement.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B28C09164D4834002F9A71 /* CSLRenderingElement.h */; };
+		A7B28C0C164D4834002F9A71 /* CSLRenderingElement.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B28C0A164D4834002F9A71 /* CSLRenderingElement.m */; };
+		A7B28C0D164D4834002F9A71 /* CSLRenderingElement.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B28C0A164D4834002F9A71 /* CSLRenderingElement.m */; };
+		A7B2ABA4164D4D46002F9A71 /* CSLRenderingElementContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B2ABA2164D4D46002F9A71 /* CSLRenderingElementContainer.h */; };
+		A7B2ABA5164D4D46002F9A71 /* CSLRenderingElementContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABA3164D4D46002F9A71 /* CSLRenderingElementContainer.m */; };
+		A7B2ABA6164D4D46002F9A71 /* CSLRenderingElementContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABA3164D4D46002F9A71 /* CSLRenderingElementContainer.m */; };
+		A7B2ABA9164D4D78002F9A71 /* CSLLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B2ABA7164D4D77002F9A71 /* CSLLabel.h */; };
+		A7B2ABAA164D4D78002F9A71 /* CSLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABA8164D4D77002F9A71 /* CSLLabel.m */; };
+		A7B2ABAB164D4D78002F9A71 /* CSLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABA8164D4D77002F9A71 /* CSLLabel.m */; };
+		A7B2ABAF164D4F29002F9A71 /* CSLLocaleTerm.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B2ABAD164D4F29002F9A71 /* CSLLocaleTerm.h */; };
+		A7B2ABB0164D4F29002F9A71 /* CSLLocaleTerm.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABAE164D4F29002F9A71 /* CSLLocaleTerm.m */; };
+		A7B2ABB1164D4F29002F9A71 /* CSLLocaleTerm.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABAE164D4F29002F9A71 /* CSLLocaleTerm.m */; };
+		A7B2ABB4164D4FA9002F9A71 /* CSLLocale.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B2ABB2164D4FA9002F9A71 /* CSLLocale.h */; };
+		A7B2ABB5164D4FA9002F9A71 /* CSLLocale.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABB3164D4FA9002F9A71 /* CSLLocale.m */; };
+		A7B2ABB6164D4FA9002F9A71 /* CSLLocale.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABB3164D4FA9002F9A71 /* CSLLocale.m */; };
+		A7B2ABB9164D5FD4002F9A71 /* CSLBibliographyOrCitation.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B2ABB7164D5FD4002F9A71 /* CSLBibliographyOrCitation.h */; };
+		A7B2ABBA164D5FD4002F9A71 /* CSLBibliographyOrCitation.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABB8164D5FD4002F9A71 /* CSLBibliographyOrCitation.m */; };
+		A7B2ABBB164D5FD4002F9A71 /* CSLBibliographyOrCitation.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABB8164D5FD4002F9A71 /* CSLBibliographyOrCitation.m */; };
+		A7B2ABC3164D7B2C002F9A71 /* CSLChoose.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B2ABC1164D7B2C002F9A71 /* CSLChoose.h */; };
+		A7B2ABC4164D7B2C002F9A71 /* CSLChoose.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABC2164D7B2C002F9A71 /* CSLChoose.m */; };
+		A7B2ABC5164D7B2C002F9A71 /* CSLChoose.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABC2164D7B2C002F9A71 /* CSLChoose.m */; };
+		A7B2ABC8164D7B76002F9A71 /* CSLIfElseCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B2ABC6164D7B76002F9A71 /* CSLIfElseCondition.h */; };
+		A7B2ABC9164D7B76002F9A71 /* CSLIfElseCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABC7164D7B76002F9A71 /* CSLIfElseCondition.m */; };
+		A7B2ABCA164D7B76002F9A71 /* CSLIfElseCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABC7164D7B76002F9A71 /* CSLIfElseCondition.m */; };
+		A7B2ABCD164D7BB0002F9A71 /* CSLGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B2ABCB164D7BAF002F9A71 /* CSLGroup.h */; };
+		A7B2ABCE164D7BB0002F9A71 /* CSLGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABCC164D7BAF002F9A71 /* CSLGroup.m */; };
+		A7B2ABCF164D7BB0002F9A71 /* CSLGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABCC164D7BAF002F9A71 /* CSLGroup.m */; };
+		A7B2ABD2164D7BDF002F9A71 /* CSLDate.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B2ABD0164D7BDF002F9A71 /* CSLDate.h */; };
+		A7B2ABD3164D7BDF002F9A71 /* CSLDate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABD1164D7BDF002F9A71 /* CSLDate.m */; };
+		A7B2ABD4164D7BDF002F9A71 /* CSLDate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABD1164D7BDF002F9A71 /* CSLDate.m */; };
+		A7B2ABD7164D7C14002F9A71 /* CSLDatePart.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B2ABD5164D7C13002F9A71 /* CSLDatePart.h */; };
+		A7B2ABD8164D7C14002F9A71 /* CSLDatePart.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABD6164D7C13002F9A71 /* CSLDatePart.m */; };
+		A7B2ABD9164D7C14002F9A71 /* CSLDatePart.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABD6164D7C13002F9A71 /* CSLDatePart.m */; };
+		A7B2ABDC164D7C36002F9A71 /* CSLText.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B2ABDA164D7C35002F9A71 /* CSLText.h */; };
+		A7B2ABDD164D7C36002F9A71 /* CSLText.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABDB164D7C35002F9A71 /* CSLText.m */; };
+		A7B2ABDE164D7C36002F9A71 /* CSLText.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABDB164D7C35002F9A71 /* CSLText.m */; };
+		A7B2ABE1164D7E8D002F9A71 /* CSLNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B2ABDF164D7E8B002F9A71 /* CSLNumber.h */; };
+		A7B2ABE2164D7E8D002F9A71 /* CSLNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABE0164D7E8C002F9A71 /* CSLNumber.m */; };
+		A7B2ABE3164D7E8D002F9A71 /* CSLNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABE0164D7E8C002F9A71 /* CSLNumber.m */; };
+		A7B2ABE6164D7EB1002F9A71 /* CSLMacro.h in Headers */ = {isa = PBXBuildFile; fileRef = A7B2ABE4164D7EAF002F9A71 /* CSLMacro.h */; };
+		A7B2ABE7164D7EB1002F9A71 /* CSLMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABE5164D7EB0002F9A71 /* CSLMacro.m */; };
+		A7B2ABE8164D7EB1002F9A71 /* CSLMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B2ABE5164D7EB0002F9A71 /* CSLMacro.m */; };
 		A7D2CCB01605A4E8003AA307 /* typeMap.xml in Resources */ = {isa = PBXBuildFile; fileRef = A7D2CCAF1605A4E8003AA307 /* typeMap.xml */; };
 		A7D563CF160304DC00324303 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7D563AE1603046700324303 /* Cocoa.framework */; };
 		A7D563EB1603059900324303 /* citations.txt in Resources */ = {isa = PBXBuildFile; fileRef = A7D563E91603059900324303 /* citations.txt */; };
@@ -128,6 +173,36 @@
 		A774D53C16497695007BAB39 /* CTidy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTidy.m; sourceTree = "<group>"; };
 		A774D53D16497695007BAB39 /* TouchXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchXML.h; sourceTree = "<group>"; };
 		A7A6A616161AD3E100C7DB72 /* CSLProcessor-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CSLProcessor-Prefix.pch"; path = "CSLProcessor/CSLProcessor-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		A7B28C04164D3FB0002F9A71 /* CSLNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSLNames.h; sourceTree = SOURCE_ROOT; };
+		A7B28C05164D3FB0002F9A71 /* CSLNames.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSLNames.m; sourceTree = SOURCE_ROOT; };
+		A7B28C09164D4834002F9A71 /* CSLRenderingElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSLRenderingElement.h; sourceTree = SOURCE_ROOT; };
+		A7B28C0A164D4834002F9A71 /* CSLRenderingElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSLRenderingElement.m; sourceTree = SOURCE_ROOT; };
+		A7B2ABA2164D4D46002F9A71 /* CSLRenderingElementContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSLRenderingElementContainer.h; sourceTree = SOURCE_ROOT; };
+		A7B2ABA3164D4D46002F9A71 /* CSLRenderingElementContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSLRenderingElementContainer.m; sourceTree = SOURCE_ROOT; };
+		A7B2ABA7164D4D77002F9A71 /* CSLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSLLabel.h; sourceTree = SOURCE_ROOT; };
+		A7B2ABA8164D4D77002F9A71 /* CSLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSLLabel.m; sourceTree = SOURCE_ROOT; };
+		A7B2ABAD164D4F29002F9A71 /* CSLLocaleTerm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSLLocaleTerm.h; sourceTree = SOURCE_ROOT; };
+		A7B2ABAE164D4F29002F9A71 /* CSLLocaleTerm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSLLocaleTerm.m; sourceTree = SOURCE_ROOT; };
+		A7B2ABB2164D4FA9002F9A71 /* CSLLocale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSLLocale.h; sourceTree = SOURCE_ROOT; };
+		A7B2ABB3164D4FA9002F9A71 /* CSLLocale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSLLocale.m; sourceTree = SOURCE_ROOT; };
+		A7B2ABB7164D5FD4002F9A71 /* CSLBibliographyOrCitation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSLBibliographyOrCitation.h; sourceTree = SOURCE_ROOT; };
+		A7B2ABB8164D5FD4002F9A71 /* CSLBibliographyOrCitation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSLBibliographyOrCitation.m; sourceTree = SOURCE_ROOT; };
+		A7B2ABC1164D7B2C002F9A71 /* CSLChoose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSLChoose.h; sourceTree = SOURCE_ROOT; };
+		A7B2ABC2164D7B2C002F9A71 /* CSLChoose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSLChoose.m; sourceTree = SOURCE_ROOT; };
+		A7B2ABC6164D7B76002F9A71 /* CSLIfElseCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSLIfElseCondition.h; sourceTree = SOURCE_ROOT; };
+		A7B2ABC7164D7B76002F9A71 /* CSLIfElseCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSLIfElseCondition.m; sourceTree = SOURCE_ROOT; };
+		A7B2ABCB164D7BAF002F9A71 /* CSLGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSLGroup.h; sourceTree = SOURCE_ROOT; };
+		A7B2ABCC164D7BAF002F9A71 /* CSLGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSLGroup.m; sourceTree = SOURCE_ROOT; };
+		A7B2ABD0164D7BDF002F9A71 /* CSLDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSLDate.h; sourceTree = SOURCE_ROOT; };
+		A7B2ABD1164D7BDF002F9A71 /* CSLDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSLDate.m; sourceTree = SOURCE_ROOT; };
+		A7B2ABD5164D7C13002F9A71 /* CSLDatePart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSLDatePart.h; sourceTree = SOURCE_ROOT; };
+		A7B2ABD6164D7C13002F9A71 /* CSLDatePart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSLDatePart.m; sourceTree = SOURCE_ROOT; };
+		A7B2ABDA164D7C35002F9A71 /* CSLText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSLText.h; sourceTree = SOURCE_ROOT; };
+		A7B2ABDB164D7C35002F9A71 /* CSLText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSLText.m; sourceTree = SOURCE_ROOT; };
+		A7B2ABDF164D7E8B002F9A71 /* CSLNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSLNumber.h; sourceTree = SOURCE_ROOT; };
+		A7B2ABE0164D7E8C002F9A71 /* CSLNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSLNumber.m; sourceTree = SOURCE_ROOT; };
+		A7B2ABE4164D7EAF002F9A71 /* CSLMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSLMacro.h; sourceTree = SOURCE_ROOT; };
+		A7B2ABE5164D7EB0002F9A71 /* CSLMacro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSLMacro.m; sourceTree = SOURCE_ROOT; };
 		A7D2CCAF1605A4E8003AA307 /* typeMap.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = typeMap.xml; path = z2csl/typeMap.xml; sourceTree = SOURCE_ROOT; };
 		A7D5634A1602F88800324303 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A7D563801602FD7E00324303 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
@@ -243,6 +318,50 @@
 			path = Tidy;
 			sourceTree = "<group>";
 		};
+		A7B28C03164D3F91002F9A71 /* RenderingElements */ = {
+			isa = PBXGroup;
+			children = (
+				A7B2ABC6164D7B76002F9A71 /* CSLIfElseCondition.h */,
+				A7B2ABC7164D7B76002F9A71 /* CSLIfElseCondition.m */,
+				A7B2ABB7164D5FD4002F9A71 /* CSLBibliographyOrCitation.h */,
+				A7B2ABB8164D5FD4002F9A71 /* CSLBibliographyOrCitation.m */,
+				A7B2ABA7164D4D77002F9A71 /* CSLLabel.h */,
+				A7B2ABA8164D4D77002F9A71 /* CSLLabel.m */,
+				A7B28C04164D3FB0002F9A71 /* CSLNames.h */,
+				A7B28C05164D3FB0002F9A71 /* CSLNames.m */,
+				A7B28C09164D4834002F9A71 /* CSLRenderingElement.h */,
+				A7B28C0A164D4834002F9A71 /* CSLRenderingElement.m */,
+				A7B2ABA2164D4D46002F9A71 /* CSLRenderingElementContainer.h */,
+				A7B2ABA3164D4D46002F9A71 /* CSLRenderingElementContainer.m */,
+				A7B2ABC1164D7B2C002F9A71 /* CSLChoose.h */,
+				A7B2ABC2164D7B2C002F9A71 /* CSLChoose.m */,
+				A7B2ABCB164D7BAF002F9A71 /* CSLGroup.h */,
+				A7B2ABCC164D7BAF002F9A71 /* CSLGroup.m */,
+				A7B2ABD0164D7BDF002F9A71 /* CSLDate.h */,
+				A7B2ABD1164D7BDF002F9A71 /* CSLDate.m */,
+				A7B2ABD5164D7C13002F9A71 /* CSLDatePart.h */,
+				A7B2ABD6164D7C13002F9A71 /* CSLDatePart.m */,
+				A7B2ABDA164D7C35002F9A71 /* CSLText.h */,
+				A7B2ABDB164D7C35002F9A71 /* CSLText.m */,
+				A7B2ABDF164D7E8B002F9A71 /* CSLNumber.h */,
+				A7B2ABE0164D7E8C002F9A71 /* CSLNumber.m */,
+				A7B2ABE4164D7EAF002F9A71 /* CSLMacro.h */,
+				A7B2ABE5164D7EB0002F9A71 /* CSLMacro.m */,
+			);
+			name = RenderingElements;
+			sourceTree = "<group>";
+		};
+		A7B2ABAC164D4F08002F9A71 /* Locale */ = {
+			isa = PBXGroup;
+			children = (
+				A7B2ABAD164D4F29002F9A71 /* CSLLocaleTerm.h */,
+				A7B2ABAE164D4F29002F9A71 /* CSLLocaleTerm.m */,
+				A7B2ABB2164D4FA9002F9A71 /* CSLLocale.h */,
+				A7B2ABB3164D4FA9002F9A71 /* CSLLocale.m */,
+			);
+			name = Locale;
+			sourceTree = "<group>";
+		};
 		A7D5633B1602F88800324303 = {
 			isa = PBXGroup;
 			children = (
@@ -324,6 +443,8 @@
 		A7D563D4160304DC00324303 /* CSLProcessor */ = {
 			isa = PBXGroup;
 			children = (
+				A7B2ABAC164D4F08002F9A71 /* Locale */,
+				A7B28C03164D3F91002F9A71 /* RenderingElements */,
 				A7D563EF1603060400324303 /* CSLFormatter.h */,
 				A7D563F01603060400324303 /* CSLFormatter.m */,
 				A7D563D5160304DC00324303 /* Supporting Files */,
@@ -354,8 +475,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7A6A610161ACACD00C7DB72 /* CSLFormatter.h in Headers */,
 				A7A6A617161AD3E100C7DB72 /* CSLProcessor-Prefix.pch in Headers */,
+				A7A6A610161ACACD00C7DB72 /* CSLFormatter.h in Headers */,
 				A774D53E16497695007BAB39 /* CXMLDocument_CreationExtensions.h in Headers */,
 				A774D54116497695007BAB39 /* CXMLNode_CreationExtensions.h in Headers */,
 				A774D54416497695007BAB39 /* CXHTMLDocument.h in Headers */,
@@ -370,6 +491,21 @@
 				A774D55F16497695007BAB39 /* CXMLNode_XPathExtensions.h in Headers */,
 				A774D56216497695007BAB39 /* CTidy.h in Headers */,
 				A774D56516497695007BAB39 /* TouchXML.h in Headers */,
+				A7B28C06164D3FB0002F9A71 /* CSLNames.h in Headers */,
+				A7B28C0B164D4834002F9A71 /* CSLRenderingElement.h in Headers */,
+				A7B2ABA4164D4D46002F9A71 /* CSLRenderingElementContainer.h in Headers */,
+				A7B2ABA9164D4D78002F9A71 /* CSLLabel.h in Headers */,
+				A7B2ABAF164D4F29002F9A71 /* CSLLocaleTerm.h in Headers */,
+				A7B2ABB4164D4FA9002F9A71 /* CSLLocale.h in Headers */,
+				A7B2ABB9164D5FD4002F9A71 /* CSLBibliographyOrCitation.h in Headers */,
+				A7B2ABC3164D7B2C002F9A71 /* CSLChoose.h in Headers */,
+				A7B2ABC8164D7B76002F9A71 /* CSLIfElseCondition.h in Headers */,
+				A7B2ABCD164D7BB0002F9A71 /* CSLGroup.h in Headers */,
+				A7B2ABD2164D7BDF002F9A71 /* CSLDate.h in Headers */,
+				A7B2ABD7164D7C14002F9A71 /* CSLDatePart.h in Headers */,
+				A7B2ABDC164D7C36002F9A71 /* CSLText.h in Headers */,
+				A7B2ABE1164D7E8D002F9A71 /* CSLNumber.h in Headers */,
+				A7B2ABE6164D7EB1002F9A71 /* CSLMacro.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +608,21 @@
 				A774D55E16497695007BAB39 /* CXMLNode_PrivateExtensions.m in Sources */,
 				A774D56116497695007BAB39 /* CXMLNode_XPathExtensions.m in Sources */,
 				A774D56416497695007BAB39 /* CTidy.m in Sources */,
+				A7B28C08164D3FB0002F9A71 /* CSLNames.m in Sources */,
+				A7B28C0D164D4834002F9A71 /* CSLRenderingElement.m in Sources */,
+				A7B2ABA6164D4D46002F9A71 /* CSLRenderingElementContainer.m in Sources */,
+				A7B2ABAB164D4D78002F9A71 /* CSLLabel.m in Sources */,
+				A7B2ABB1164D4F29002F9A71 /* CSLLocaleTerm.m in Sources */,
+				A7B2ABB6164D4FA9002F9A71 /* CSLLocale.m in Sources */,
+				A7B2ABBB164D5FD4002F9A71 /* CSLBibliographyOrCitation.m in Sources */,
+				A7B2ABC5164D7B2C002F9A71 /* CSLChoose.m in Sources */,
+				A7B2ABCA164D7B76002F9A71 /* CSLIfElseCondition.m in Sources */,
+				A7B2ABCF164D7BB0002F9A71 /* CSLGroup.m in Sources */,
+				A7B2ABD4164D7BDF002F9A71 /* CSLDate.m in Sources */,
+				A7B2ABD9164D7C14002F9A71 /* CSLDatePart.m in Sources */,
+				A7B2ABDE164D7C36002F9A71 /* CSLText.m in Sources */,
+				A7B2ABE3164D7E8D002F9A71 /* CSLNumber.m in Sources */,
+				A7B2ABE8164D7EB1002F9A71 /* CSLMacro.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +659,21 @@
 				A774D55D16497695007BAB39 /* CXMLNode_PrivateExtensions.m in Sources */,
 				A774D56016497695007BAB39 /* CXMLNode_XPathExtensions.m in Sources */,
 				A774D56316497695007BAB39 /* CTidy.m in Sources */,
+				A7B28C07164D3FB0002F9A71 /* CSLNames.m in Sources */,
+				A7B28C0C164D4834002F9A71 /* CSLRenderingElement.m in Sources */,
+				A7B2ABA5164D4D46002F9A71 /* CSLRenderingElementContainer.m in Sources */,
+				A7B2ABAA164D4D78002F9A71 /* CSLLabel.m in Sources */,
+				A7B2ABB0164D4F29002F9A71 /* CSLLocaleTerm.m in Sources */,
+				A7B2ABB5164D4FA9002F9A71 /* CSLLocale.m in Sources */,
+				A7B2ABBA164D5FD4002F9A71 /* CSLBibliographyOrCitation.m in Sources */,
+				A7B2ABC4164D7B2C002F9A71 /* CSLChoose.m in Sources */,
+				A7B2ABC9164D7B76002F9A71 /* CSLIfElseCondition.m in Sources */,
+				A7B2ABCE164D7BB0002F9A71 /* CSLGroup.m in Sources */,
+				A7B2ABD3164D7BDF002F9A71 /* CSLDate.m in Sources */,
+				A7B2ABD8164D7C14002F9A71 /* CSLDatePart.m in Sources */,
+				A7B2ABDD164D7C36002F9A71 /* CSLText.m in Sources */,
+				A7B2ABE2164D7E8D002F9A71 /* CSLNumber.m in Sources */,
+				A7B2ABE7164D7EB1002F9A71 /* CSLMacro.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +690,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CSLProcessor/CSLProcessor-Prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -572,7 +739,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-lxml2";
@@ -597,7 +764,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_LDFLAGS = "-lxml2";
 				SDKROOT = macosx;

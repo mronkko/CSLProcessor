@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+
+
 @interface CSLFormatter : NSObject{
     NSDictionary* fieldMap;
     NSDictionary* typeMap;
@@ -36,5 +38,12 @@
 
 -(NSString*) formatBibliographyItemUsingVariables:(NSDictionary*)variables;
 -(NSString*) formatBibliographyItemUsingVariables:(NSDictionary*)variables storeMacrosInDictionary:(NSMutableDictionary*) macros;
+
+
+//Used internally (refactor so that these are not declared here)
+
+-(NSString*) localizedStringForTerm:(NSString*)term plural:(BOOL)plural form:(NSInteger)form;
++(NSInteger) formAsInteger:(NSString*)form;
+
 
 @end
