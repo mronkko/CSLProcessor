@@ -47,7 +47,7 @@ int main(int argc, const char * argv[])
         
         NSString* citation = [citationsLines objectAtIndex:i++];
         
-        if(i>54){
+        if(i>-0){
             citation = [citation stringByDecodingHTMLEntities];
             
             NSMutableDictionary* macroDict = [[NSMutableDictionary alloc] init];

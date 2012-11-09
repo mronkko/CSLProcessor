@@ -308,7 +308,12 @@ static NSRegularExpression* REGEX_ROMANESQUE;
             
         }
     }
-    return namesString;
+    if(hasNames){
+        return namesString;
+    }
+    else{
+        return NULL;
+    }
 }
 
 -(NSString*) renderContentForFields:(NSMutableDictionary *)fields formatter:(CSLFormatter *)formatter rootElement:(CSLBibliographyOrCitation*)rootElement storeMacrosInDictionary:(NSMutableDictionary *)macros{
