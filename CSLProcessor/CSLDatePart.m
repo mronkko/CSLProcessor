@@ -93,15 +93,17 @@ static NSArray* MONTH_NAMES;
     }
 }
 -(NSString*) renderContentForFields:(NSMutableDictionary *)fields formatter:(CSLFormatter *)formatter rootElement:(CSLBibliographyOrCitation *)rootElement storeMacrosInDictionary:(NSMutableDictionary *)macros{
+
     NSString* dateValue = [fields objectForKey:self.variable];
     
-    NSString* parsedValue = [self _parseDate:dateValue part:datePart];
-    if(parsedValue!=NULL){
-        return [self postProcessRenderedString:parsedValue];
+    if(dateValue != nil){
+        NSString* parsedValue = [self _parseDate:dateValue part:datePart];
+        if(parsedValue!=NULL){
+            return [self postProcessRenderedString:parsedValue];
+        }
     }
-    else{
-        return NULL;
-    }
+
+    return NULL;
 }
 -(BOOL) containsVariablesFields:(NSMutableDictionary *)fields formatter:(CSLFormatter *)formatter{
     return TRUE;

@@ -125,6 +125,15 @@ static NSRegularExpression* REGEX_ROMANESQUE;
             }
             else if([childElement.name isEqualToString:@"substitute"]){
                 substitutes = [[CSLRenderingElementContainer alloc] initWithXMLElement:childElement formatter:formatter];
+                //Loop over the substitutes and replace the names attributes with the attributes of the main names if null
+                for(CSLRenderingElement* child in substitutes.childElements){
+                    if([child isKindOfClass:[CSLNames class]]){
+                        CSLNames* childNames = (CSLNames*) child;
+                        if(childNames->initializeWith == nil) childNames->initializeWith = initializeWith;
+                        if(childNames->delimiter == nil) childNames->delimiter = delimiter;
+                        //TODO: Implement inheriting other attributes as well.
+                    }
+                }
             }
             else{
                 [NSException raise:@"Not implemented" format:@"Child node type %@ has not been implemented for element names",childElement.name];
@@ -221,11 +230,11 @@ static NSRegularExpression* REGEX_ROMANESQUE;
                 
                 NSString* lastName = [creator objectForKey:@"lastName"];
                 
-                if(lastName != NULL){
+                if(lastName != NULL && (NSObject*)lastName != [NSNull null]){
                     
                     //TODO: Make [NSCharacterSet characterSetWithCharactersInString:@". "] a class variable:
                     NSString* firstNameData = [creator objectForKey:@"firstName"];
-                    
+
                     if([firstNameData length]>0){
                         
                         NSMutableString* firstName = [[NSMutableString alloc] init];
@@ -287,7 +296,8 @@ static NSRegularExpression* REGEX_ROMANESQUE;
                     }
                 }
                 else{
-                    [namesString appendString:[creator objectForKey:@"name"]];
+                    NSString* name = [creator objectForKey:@"name"];
+                    if(name != nil && (NSObject*)name != [NSNull null]) [namesString appendString:name];
                 }
             }
             
